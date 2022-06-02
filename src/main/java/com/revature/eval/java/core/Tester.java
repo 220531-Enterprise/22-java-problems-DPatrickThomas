@@ -7,22 +7,22 @@ public class Tester {
 
 	public static void main(String[] args) {
 		
-		System.out.println(sumFirstAndLastDigit(257));
+		System.out.println(reverse ("robot"));
 		
 
 	}
 	
 	
-	public static int sumFirstAndLastDigit(int num) {
-		int firstDigit=0;
-		int lastDigit= num % 10;
-		while (num !=0) {
-			firstDigit=num;
-			num /=10;
-		}
-		return firstDigit + lastDigit;	
-	}
-
+	public static String reverse(String string) {
+		
+		String reversedString= "";
+		char newChar;
+		for (int i=1; i <= string.length(); i++) {
+			newChar=string.charAt(string.length()-i);
+			reversedString += newChar;	
+		    }
+		return reversedString;
+	    }
 	
 }
 
