@@ -7,22 +7,41 @@ public class Tester {
 
 	public static void main(String[] args) {
 		
-		System.out.println(printYearsAndDays(561600));
+		System.out.println(printNumberInWord(13) );
 		
 
 	}
 	
 	
-
-	public static String printYearsAndDays(long minutes) {
-		long years = minutes/525600;
-		long remainingMinutes= minutes % 525600;
-		int days= (int) remainingMinutes/ 1440;
-		return minutes + " min = " + years +" y and " + days + " d" ;
-	}
+	public static String printNumberInWord(int number) {
+		String word;
+	
+		switch (number){
+		case 0: word= "ZERO";
+		break;
+		case 1: word= "ONE";
+		break;
+		case 2: word ="TWO";
+		break;
+		case 3: word= "THREE";
+		break;
+		case 4: word= "FOUR";
+		break;
+		case 5: word= "FIVE";
+		break;
+		case 6: word= "SIX";
+		break;
+		case 7: word= "SEVEN";
+		break;
+		case 8: word= "EIGHT";
+		break;
+		case 9: word= "NINE";
+		break;
+		default: word = "OTHER";
+		}
 		
-		
-		
+		return word;
+		}	
 		
 		
 	}
