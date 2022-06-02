@@ -7,22 +7,17 @@ public class Tester {
 
 	public static void main(String[] args) {
 		
-		System.out.println(acronym("First In, First Out"));
+		System.out.println(areEqualByThreeDecimalPlaces(3.0, 3.0));
 		
 
 	}
 	
 	
-	public static String acronym(String phrase) {
-		String[] words= phrase.split(" ");
-		String acronym= "";
-		for (int i=0; i <words.length; i++) {
-			acronym += words[i].charAt(0);
-		}
-		
-		return acronym;
-	
+	public static boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
+		return (int) (firstNum * 1000) == (int) (secondNum * 1000);
 	}
+	
+	
 }
 	
 
