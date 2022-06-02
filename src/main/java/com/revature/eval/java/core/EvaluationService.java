@@ -152,8 +152,11 @@ public class EvaluationService {
 	static class TeenNumberChecker {
 
 		public static boolean hasTeen(int x, int y, int z) {
-			// TODO Write an implementation for this method declaration
+			if ((x<20 && x>12) || (y<20 && y>12) || (z<20 && z>12)) {
+				return true;
+			}else {
 			return false;
+			}
 		}
 
 		// We can initialize isTeen method first

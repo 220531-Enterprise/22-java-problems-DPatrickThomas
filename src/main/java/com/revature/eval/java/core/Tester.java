@@ -7,22 +7,18 @@ public class Tester {
 
 	public static void main(String[] args) {
 		
-		System.out.println(areEqualByThreeDecimalPlaces(-3.1756, -3.175));
+		System.out.println(hasTeen (22, 34, 44));
 
 	}
 	
-	public static boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
-		DecimalFormat df = new DecimalFormat(".000");
-		if (firstNum<0) {
-		    df.setRoundingMode(RoundingMode.CEILING);
-		} else {
-			df.setRoundingMode(RoundingMode.FLOOR);
-		}
-		String num1= df.format(firstNum);
-		String num2= df.format(secondNum);
-		System.out.println(num1);
-		System.out.println(num2);
-	    return num1.equals(num2);
+	
+
+		public static boolean hasTeen(int x, int y, int z) {
+			if ((x<20 && x>12) || (y<20 && y>12) || (z<20 && z>12)) {
+				return true;
+			}else {
+			return false;
+			}
 		
 		
 		
