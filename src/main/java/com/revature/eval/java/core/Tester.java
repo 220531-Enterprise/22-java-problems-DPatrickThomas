@@ -7,19 +7,19 @@ public class Tester {
 
 	public static void main(String[] args) {
 		
-		System.out.println(hasTeen (22, 34, 44));
+		System.out.println(printYearsAndDays(561600));
+		
 
 	}
 	
 	
 
-		public static boolean hasTeen(int x, int y, int z) {
-			if ((x<20 && x>12) || (y<20 && y>12) || (z<20 && z>12)) {
-				return true;
-			}else {
-			return false;
-			}
-		
+	public static String printYearsAndDays(long minutes) {
+		long years = minutes/525600;
+		long remainingMinutes= minutes % 525600;
+		int days= (int) remainingMinutes/ 1440;
+		return minutes + " min = " + years +" y and " + days + " d" ;
+	}
 		
 		
 		
@@ -28,7 +28,7 @@ public class Tester {
 	}
 
 	
-}
+
 
 	
 

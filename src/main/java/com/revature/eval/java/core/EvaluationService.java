@@ -183,10 +183,13 @@ public class EvaluationService {
 	 * XX represents the original value minutes. YY represents the calculated years.
 	 * ZZ represents the calculated days.
 	 */
-	public String printYearsAndDays(long minutes) {
-		// TODO Write an implementation for this method declaration
-		return null;
+	public static String printYearsAndDays(long minutes) {
+		long years = minutes/525600;
+		long remainingMinutes= minutes % 525600;
+		int days= (int) remainingMinutes/ 1440;
+		return minutes + " min = " + years +" y and " + days + " d" ;
 	}
+		
 
 	/**
 	 * 7. Number In Word
