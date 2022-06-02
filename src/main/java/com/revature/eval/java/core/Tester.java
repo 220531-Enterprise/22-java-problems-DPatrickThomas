@@ -4,16 +4,19 @@ public class Tester {
 
 	public static void main(String[] args) {
 		
-		System.out.println(printConversion(10.25));
+		System.out.println(printMegaBytesAndKiloBytes(2500));
 
 	}
 	
-	public static String printConversion(double kilometersPerHour) {
-		if (kilometersPerHour <0) {
-			return "Invalid Value";
+	public static String printMegaBytesAndKiloBytes(int kilobytes) {
+		if (kilobytes <0 ) {
+			return "Invalid Value";	
 		}
-		long mph= Math.round(kilometersPerHour / 1.609);
-		return kilometersPerHour + " km/h = " + mph + "mi/h";
-		}
+		int megabytes = kilobytes/1024; 
+		int remainingKilobytes= kilobytes % 1024;
+		return kilobytes + " KB = " + megabytes + " MB and " +remainingKilobytes + "KB";
+	}
 
 }
+
+

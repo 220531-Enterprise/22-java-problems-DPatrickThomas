@@ -75,9 +75,13 @@ public class EvaluationService {
 	 * If the parameter kiloBytes is less than 0 then print the text "Invalid
 	 * Value".
 	 */
-	public String printMegaBytesAndKiloBytes(int XX) {
-		// TODO Write an implementation for this method declaration
-		return null;
+	public String printMegaBytesAndKiloBytes(int kilobytes) {
+		if (kilobytes <0 ) {
+			return "Invalid Value";	
+		}
+		int megabytes = kilobytes/1024; 
+		int remainingKilobytes= kilobytes % 1024;
+		return kilobytes + " KB = " + megabytes + " MB and " +remainingKilobytes + " KB";
 	}
 
 	/**
