@@ -320,9 +320,15 @@ public class EvaluationService {
 	 * Acronyms)! Help generate some jargon by writing a program that converts a
 	 * long name like Portable Network Graphics to its acronym (PNG).
 	 */
-	public String acronym(String phrase) {
-		// TODO Write an implementation for this method declaration
-		return null;
+	public static String acronym(String phrase) {
+		String[] words= phrase.split(" ");
+		String acronym= "";
+		for (int i=0; i <words.length; i++) {
+			acronym += words[i].charAt(0);
+		}
+		
+		return acronym;
+	
 	}
 
 	/**

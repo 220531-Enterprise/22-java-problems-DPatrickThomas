@@ -7,25 +7,23 @@ public class Tester {
 
 	public static void main(String[] args) {
 		
-		System.out.println(reverse ("robot"));
+		System.out.println(acronym("First In, First Out"));
 		
 
 	}
 	
 	
-	public static String reverse(String string) {
+	public static String acronym(String phrase) {
+		String[] words= phrase.split(" ");
+		String acronym= "";
+		for (int i=0; i <words.length; i++) {
+			acronym += words[i].charAt(0);
+		}
 		
-		String reversedString= "";
-		char newChar;
-		for (int i=1; i <= string.length(); i++) {
-			newChar=string.charAt(string.length()-i);
-			reversedString += newChar;	
-		    }
-		return reversedString;
-	    }
+		return acronym;
 	
+	}
 }
-
 	
 
 
