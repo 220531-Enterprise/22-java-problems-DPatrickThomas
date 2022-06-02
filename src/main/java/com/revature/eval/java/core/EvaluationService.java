@@ -285,10 +285,16 @@ public class EvaluationService {
 	 * If the number is negative then the method needs to return -1 to indicate an
 	 * invalid value.
 	 */
-	public int sumFirstAndLastDigit(int num) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+	public static int sumFirstAndLastDigit(int num) {
+		int firstDigit=0;
+		int lastDigit= num % 10;
+		while (num !=0) {
+			firstDigit=num;
+			num /=10;
+		}
+		return firstDigit + lastDigit;	
 	}
+	
 
 	/**
 	 * 10. Reverse String

@@ -7,35 +7,24 @@ public class Tester {
 
 	public static void main(String[] args) {
 		
-		System.out.println(getGreatestCommonDivisor(9, 18));
+		System.out.println(sumFirstAndLastDigit(257));
 		
 
 	}
 	
 	
-	public static int getGreatestCommonDivisor(int first, int second) {
-		int divisor=0;
-	
-		if (first<0 || second<0) {
-			return -1;
+	public static int sumFirstAndLastDigit(int num) {
+		int firstDigit=0;
+		int lastDigit= num % 10;
+		while (num !=0) {
+			firstDigit=num;
+			num /=10;
 		}
-		for (int i=1; i<=first; i++) {
-			if (first % i==0 && second % i==0) {
-				if (i>divisor) {
-					divisor=i;
-				}
-			}
-				
-			}
-			return divisor;
-		}
-		
-		
-		
+		return firstDigit + lastDigit;	
 	}
 
 	
-
+}
 
 	
 
