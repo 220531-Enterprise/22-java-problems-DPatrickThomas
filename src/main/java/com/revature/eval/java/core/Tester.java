@@ -4,19 +4,24 @@ public class Tester {
 
 	public static void main(String[] args) {
 		
-		System.out.println(printMegaBytesAndKiloBytes(2500));
+		System.out.println(shouldWakeUp(true, -1));
 
 	}
 	
-	public static String printMegaBytesAndKiloBytes(int kilobytes) {
-		if (kilobytes <0 ) {
-			return "Invalid Value";	
+	public static boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
+		if(hourOfDay<0 || hourOfDay>23) {
+			return false;
 		}
-		int megabytes = kilobytes/1024; 
-		int remainingKilobytes= kilobytes % 1024;
-		return kilobytes + " KB = " + megabytes + " MB and " +remainingKilobytes + "KB";
+		if (isBarking==true && hourOfDay<8 || hourOfDay>22 ) {
+			return true;
+		} 
+		return false;	
 	}
-
+	
 }
+
+	
+
+
 
 
