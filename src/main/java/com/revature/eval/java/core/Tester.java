@@ -7,41 +7,29 @@ public class Tester {
 
 	public static void main(String[] args) {
 		
-		System.out.println(printNumberInWord(13) );
+		System.out.println(getGreatestCommonDivisor(9, 18));
 		
 
 	}
 	
 	
-	public static String printNumberInWord(int number) {
-		String word;
+	public static int getGreatestCommonDivisor(int first, int second) {
+		int divisor=0;
 	
-		switch (number){
-		case 0: word= "ZERO";
-		break;
-		case 1: word= "ONE";
-		break;
-		case 2: word ="TWO";
-		break;
-		case 3: word= "THREE";
-		break;
-		case 4: word= "FOUR";
-		break;
-		case 5: word= "FIVE";
-		break;
-		case 6: word= "SIX";
-		break;
-		case 7: word= "SEVEN";
-		break;
-		case 8: word= "EIGHT";
-		break;
-		case 9: word= "NINE";
-		break;
-		default: word = "OTHER";
+		if (first<0 || second<0) {
+			return -1;
+		}
+		for (int i=1; i<=first; i++) {
+			if (first % i==0 && second % i==0) {
+				if (i>divisor) {
+					divisor=i;
+				}
+			}
+				
+			}
+			return divisor;
 		}
 		
-		return word;
-		}	
 		
 		
 	}

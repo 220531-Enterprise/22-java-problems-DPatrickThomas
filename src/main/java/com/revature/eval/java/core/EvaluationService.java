@@ -250,10 +250,27 @@ public class EvaluationService {
 	 * The greatest common divisor is 6 since both 12 and 30 can be divided by 6,
 	 * and there is no resulting remainder.
 	 */
-	public int getGreatestCommonDivisor(int first, int second) {
-		// TODO Write an implementation for this method declaration
-		return 0;
-	}
+	
+	public static int getGreatestCommonDivisor(int first, int second) {
+		int divisor=0;
+		
+	
+		if (first<10 || second<10) {
+			return -1;
+		}
+		for (int i=1; i<=first; i++) {
+			if (first % i==0 && second % i==0) {
+				if (i>divisor) {
+					divisor=i;
+				}
+			}
+				
+			}
+			return divisor;
+		}
+		
+		
+	
 
 	/**
 	 * 9. First and Last Digit Sum
