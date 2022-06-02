@@ -27,10 +27,13 @@ public class EvaluationService {
 			long mph= Math.round(kilometersPerHour / 1.609);
 			return mph;
 		}
+		
+		
 
 		/**
 		 * 1.B Speed Converter - Print Conversion
-		 * 
+		 
+		
 		 * Write another method called printConversion with 1 parameter of type double
 		 * with the name kilometersPerHour. This method needs to return a String and
 		 * needs to calculate milesPerHour from the kilometersPerHour parameter.
@@ -44,9 +47,12 @@ public class EvaluationService {
 		 * Value"
 		 */
 		public static String printConversion(double kilometersPerHour) {
-			// TODO Write an implementation for this method declaration
-			return null;
-		}
+			if (kilometersPerHour <0) {
+				return "Invalid Value";
+			}
+			long mph= Math.round(kilometersPerHour / 1.609);
+			return kilometersPerHour + " km/h = " + mph + " mi/h";
+ 		}
 	}
 
 	/**
