@@ -1,5 +1,8 @@
 package com.revature.eval.java.core;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -123,11 +126,19 @@ public class EvaluationService {
 	 * 
 	 * Otherwise, return false;
 	 */
-	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
-		// TODO Write an implementation for this method declaration
-		return false;
+	public static boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
+		DecimalFormat df = new DecimalFormat(".000");
+		if (firstNum<0) {
+		    df.setRoundingMode(RoundingMode.CEILING);
+		} else {
+			df.setRoundingMode(RoundingMode.FLOOR);
+		}
+		String num1= df.format(firstNum);
+		String num2= df.format(secondNum);
+		System.out.println(num1);
+		System.out.println(num2);
+	    return num1.equals(num2);
 	}
-
 	/**
 	 * 5. Teen Number Checker
 	 * 

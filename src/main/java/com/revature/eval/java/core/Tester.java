@@ -1,22 +1,36 @@
 package com.revature.eval.java.core;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class Tester {
 
 	public static void main(String[] args) {
 		
-		System.out.println(shouldWakeUp(true, -1));
+		System.out.println(areEqualByThreeDecimalPlaces(-3.1756, -3.175));
 
 	}
 	
-	public static boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
-		if(hourOfDay<0 || hourOfDay>23) {
-			return false;
+	public static boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
+		DecimalFormat df = new DecimalFormat(".000");
+		if (firstNum<0) {
+		    df.setRoundingMode(RoundingMode.CEILING);
+		} else {
+			df.setRoundingMode(RoundingMode.FLOOR);
 		}
-		if (isBarking==true && hourOfDay<8 || hourOfDay>22 ) {
-			return true;
-		} 
-		return false;	
+		String num1= df.format(firstNum);
+		String num2= df.format(secondNum);
+		System.out.println(num1);
+		System.out.println(num2);
+	    return num1.equals(num2);
+		
+		
+		
+		
+		
+		
 	}
+
 	
 }
 
