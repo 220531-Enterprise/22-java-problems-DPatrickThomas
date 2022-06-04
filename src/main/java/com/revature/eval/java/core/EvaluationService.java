@@ -125,20 +125,12 @@ public class EvaluationService {
 	 * numbers are the same up to three decimal places.
 	 * 
 	 * Otherwise, return false;
+	 * 
 	 */
 	public static boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
-		DecimalFormat df = new DecimalFormat(".000");
-		if (firstNum<0) {
-		    df.setRoundingMode(RoundingMode.CEILING);
-		} else {
-			df.setRoundingMode(RoundingMode.FLOOR);
-		}
-		String num1= df.format(firstNum);
-		String num2= df.format(secondNum);
-		System.out.println(num1);
-		System.out.println(num2);
-	    return num1.equals(num2);
+		return (int) (firstNum * 1000) == (int) (secondNum * 1000);
 	}
+	
 	/**
 	 * 5. Teen Number Checker
 	 * 
@@ -413,9 +405,36 @@ public class EvaluationService {
 	 * 
 	 * 3 + 2*1 + 2*3 + 2 + 1 = 3 + 2 + 6 + 3 = 5 + 9 = 14
 	 */
-	public int getScrabbleScore(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+	public static int getScrabbleScore(String string) {
+		String word= string.toUpperCase();
+		int score=0;
+		char tile;
+		for (int i=0; i<=word.length()-1;i++) {
+			tile=word.charAt(i);
+			switch (tile) {
+				case 'Q': case 'Z':
+					score +=10;
+					break;
+				case 'J': case 'X':
+					score +=8;
+					break;
+				case 'K':
+					score+=5;
+					break;
+				case 'F': case 'H': case 'V': case 'W': case 'Y':
+					score +=4;
+					break;
+				case 'B': case 'C': case 'M': case 'P':
+					score +=3;
+					break;
+				case 'D': case 'G':
+					score +=2;
+					break;
+				default:
+					score+=1;
+				}
+			}
+		return score;
 	}
 
 	/**
