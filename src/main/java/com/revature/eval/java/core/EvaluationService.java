@@ -506,8 +506,28 @@ public class EvaluationService {
 	 * != 1^3 + 5^3 + 4^3 = 1 + 125 + 64 = 190 Write some code to determine whether
 	 * a number is an Armstrong number.
 	 */
-	public boolean isArmstrongNumber(int input) {
-		return false;
+	
+	public static boolean isArmstrongNumber(int input) {
+		int digit=0;
+		int numOfDigits=0;
+		int sumOfRaisedDigits=0;
+		int decimalPlaces= input;
+		int utilNum = input;
+		
+		while (decimalPlaces>0) {
+			numOfDigits ++;
+			decimalPlaces /= 10;
+		}
+		
+		while (utilNum>0) {
+		    digit = utilNum % 10;
+		    
+		    sumOfRaisedDigits += Math.pow(digit,numOfDigits);
+		    utilNum /=10;
+		}
+		
+		
+		return input==sumOfRaisedDigits;
 	}
 
 	/**
