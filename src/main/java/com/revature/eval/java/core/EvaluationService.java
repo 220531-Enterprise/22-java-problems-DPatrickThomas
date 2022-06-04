@@ -539,7 +539,8 @@ public class EvaluationService {
 	 * Note that 1 is not a prime number.
 	 */
 	public List<Long> calculatePrimeFactorsOf(long l) {
-		// TODO Write an implementation for this method declaration
+		
+		
 		return null;
 	}
 
@@ -555,9 +556,34 @@ public class EvaluationService {
 	 * numbers, pretend they don't exist and implement them yourself.
 	 */
 	public int calculateNthPrime(int k) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		int counter=0;
+		int num= 2;
+		int lastPrime=0;
+		boolean isPrime=true;
+		
+		while (counter < k) {
+			if (isPrime(num)) {
+				counter++;
+				lastPrime=num;
+			}
+			num++;
+		}
+		return lastPrime;
 	}
+	
+	private static boolean isPrime(int num) {		
+		boolean isPrime=true;
+		for (int i=2; i<=num-1; i ++) {
+			if (num % i ==0) {
+				isPrime=false;
+				break;
+			} else {
+				isPrime=true;
+			}
+		}
+		return isPrime;
+	}
+	
 
 	/**
 	 * 19. Pangram

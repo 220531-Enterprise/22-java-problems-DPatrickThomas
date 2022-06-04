@@ -7,36 +7,68 @@ public class Tester {
 
 	public static void main(String[] args) {
 		
-		System.out.println(isArmstrongNumber(9474));
-		
-
+	System.out.println(solveWithFunction(10001) );
+	
 	}
 	
-	
-	public static boolean isArmstrongNumber(int input) {
-		int digit=0;
-		int numOfDigits=0;
-		int sumOfRaisedDigits=0;
-		int decimalPlaces= input;
-		int utilNum = input;
+	public static int calculateNthPrime(int k) {
+		int counter=0;
+		int num= 2;
+		int lastPrime=0;
+		boolean isPrime=true;
 		
-		while (decimalPlaces>0) {
-			numOfDigits ++;
-			decimalPlaces /= 10;
+		while (counter < k) {
+			isPrime=true;
+			for (int i=2; i<=num-1; i ++) {
+				if (num % i ==0) {
+					isPrime=false;
+					break;
+				} else {
+					isPrime=true;
+				}
+			}
+		if (isPrime=true) {
+			lastPrime=num;
+			counter ++;
+		}
+		num++;
+		}
+		return lastPrime;
+		}
+	
+	
+	
+	
+		private static boolean isPrime(int num) {		
+			boolean isPrime=true;
+			for (int i=2; i<=num-1; i ++) {
+				if (num % i ==0) {
+					isPrime=false;
+					break;
+				} else {
+					isPrime=true;
+				}
+			}
+			return isPrime;
 		}
 		
-		while (utilNum>0) {
-		    digit = utilNum % 10;
-		    System.out.println(digit);
-		    sumOfRaisedDigits += Math.pow(digit,numOfDigits);
-		    utilNum /=10;
-		}
-		System.out.println(sumOfRaisedDigits);
 		
-		return input==sumOfRaisedDigits;
-	}
-}
-	
+		public static int solveWithFunction(int k) {
+			int counter=0;
+			int num= 2;
+			int lastPrime=0;
+			boolean isPrime=true;
+			
+			while (counter < k) {
+				if (isPrime(num)) {
+					counter++;
+					lastPrime=num;
+				}
+				num++;
+			}
+			return lastPrime;
+		}
+}	
 
 
 
