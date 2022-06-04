@@ -7,39 +7,37 @@ public class Tester {
 
 	public static void main(String[] args) {
 		
-	System.out.println(isPangram("a quick movement of the enemy will jeopardize five gunboats"));
+	System.out.println(cleanPhoneNumber("3212345678902  "));
 	
 	}
 	
 	
-	public static boolean isPangram (String sentence) {
+	public static String cleanPhoneNumber(String string) {
 		
-		String abcs="abcdefghijklmnopqrstuvwxyz";
-		String testString="";
-		boolean isPangram=true;
-		
-		for (int i=0; i<=25; i++) {
-			 char nextChar= abcs.charAt(i);
-			 
-			 if (isInSentence(nextChar, sentence)== false){
-				isPangram=false;
-				break;
-			    }
-			 testString="";
-		    }
-		return isPangram;		
-	}
-	
-	public static boolean isInSentence (char letter, String sentence) {
-		boolean isIn= false;
-		for (int i=0; i< sentence.length(); i++) {
-			if (sentence.charAt(i) == letter) {
-				isIn=true;
-				break;
-			}			
+		String numOnly= justNumbers(string);
+		if (numOnly.length() >10) {
+			return "Invalid Number";
 		}
-		return isIn;
+		if (numOnly.charAt(0) ==1) {
+			numOnly.substring(1);
+		}
+		
+		return numOnly;
 	}
+	
+	public static String justNumbers (String string) {
+		String numbersString="";
+		String numbers= "1234567890";
+		
+		for (int i=0; i <= string.length()-1; i++) {
+			for (int j=0; j<=9; j++) {
+				if (string.charAt(i)== numbers.charAt(j)) {
+					numbersString += string.charAt(i);
+				}
+			}
+		}
+		return numbersString;
+		}
 }	
 
 
