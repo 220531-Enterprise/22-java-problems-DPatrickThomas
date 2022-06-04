@@ -390,7 +390,7 @@ public class EvaluationService {
 		}
 
 	}
-
+  
 	/**
 	 * 13. Scrabble Score
 	 * 
@@ -471,7 +471,12 @@ public class EvaluationService {
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
 	public String cleanPhoneNumber(String string) {
-		return null;
+		String numOnly= string.replaceAll("[^0-9]", "");
+		if (numOnly.charAt(0) ==1) {
+			numOnly.substring(1);
+		}
+		
+		return numOnly;
 	}
 
 	/**
