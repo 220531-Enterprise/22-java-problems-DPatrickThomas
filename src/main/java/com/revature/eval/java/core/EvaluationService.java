@@ -5,6 +5,7 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class EvaluationService {
 
@@ -470,14 +471,33 @@ public class EvaluationService {
 	 * Note: As this exercise only deals with telephone numbers used in
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
-	public String cleanPhoneNumber(String string) {
-		String numOnly= string.replaceAll("[^0-9]", "");
+public static String cleanPhoneNumber(String string) {
+		
+		String numOnly= justNumbers(string);
+		if (numOnly.length() >10) {
+			return "Invalid Number";
+		}
 		if (numOnly.charAt(0) ==1) {
 			numOnly.substring(1);
 		}
 		
 		return numOnly;
 	}
+
+	
+	public static String justNumbers (String string) {
+		String numbersString="";
+		String numbers= "1234567890";
+		
+		for (int i=0; i <= string.length()-1; i++) {
+			for (int j=0; j<=9; j++) {
+				if (string.charAt(i)== numbers.charAt(j)) {
+					numbersString += string.charAt(i);
+				}
+			}
+		}
+		return numbersString;
+		}
 
 	/**
 	 * 15. Recurring Word Counter
@@ -539,6 +559,7 @@ public class EvaluationService {
 	 * Note that 1 is not a prime number.
 	 */
 	public List<Long> calculatePrimeFactorsOf(long l) {
+		
 		
 		
 		return null;
@@ -648,7 +669,12 @@ public class EvaluationService {
 	 */
 	
 	public int[] threeLuckyNumbers() {
-		return null;
+		
+		int[] slots= new int[3];
+		for (int i=0; i <=2; i++) {
+			slots[i]= ThreadLocalRandom.current().nextInt(1, 100 + 1);
+		}
+		return slots;
 	}
 	
 	/*

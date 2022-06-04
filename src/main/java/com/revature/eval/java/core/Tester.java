@@ -2,42 +2,27 @@ package com.revature.eval.java.core;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Tester {
 
 	public static void main(String[] args) {
+	
 		
-	System.out.println(cleanPhoneNumber("3212345678902  "));
+	System.out.println(Arrays.toString(threeLuckyNumbers()));
 	
 	}
 	
 	
-	public static String cleanPhoneNumber(String string) {
+	public static int[] threeLuckyNumbers() {
 		
-		String numOnly= justNumbers(string);
-		if (numOnly.length() >10) {
-			return "Invalid Number";
+		int[] slots= new int[3];
+		for (int i=0; i <=2; i++) {
+			slots[i]= ThreadLocalRandom.current().nextInt(1, 100 + 1);
 		}
-		if (numOnly.charAt(0) ==1) {
-			numOnly.substring(1);
-		}
-		
-		return numOnly;
+		return slots;
 	}
-	
-	public static String justNumbers (String string) {
-		String numbersString="";
-		String numbers= "1234567890";
-		
-		for (int i=0; i <= string.length()-1; i++) {
-			for (int j=0; j<=9; j++) {
-				if (string.charAt(i)== numbers.charAt(j)) {
-					numbersString += string.charAt(i);
-				}
-			}
-		}
-		return numbersString;
-		}
 }	
 
 
