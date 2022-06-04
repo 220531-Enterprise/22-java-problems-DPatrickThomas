@@ -10,20 +10,18 @@ public class Tester {
 	public static void main(String[] args) {
 	
 		
-	System.out.println(Arrays.toString(threeLuckyNumbers()));
+	System.out.println(guessingGame(50, 100));
 	
+	}
+	public static int guessingGame(int x, int y) {
+		int range= y-x;
+        int randomNum = (int)(Math.random() * range) + x;
+		return randomNum;
 	}
 	
 	
-	public static int[] threeLuckyNumbers() {
-		
-		int[] slots= new int[3];
-		for (int i=0; i <=2; i++) {
-			slots[i]= ThreadLocalRandom.current().nextInt(1, 100 + 1);
-		}
-		return slots;
-	}
-}	
+}
+	
 
 
 

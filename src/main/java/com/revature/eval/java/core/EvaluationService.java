@@ -688,6 +688,8 @@ public static String cleanPhoneNumber(String string) {
 	 */
 	
 	public int guessingGame(int x, int y) {
-		return 0;
+		int range= y-x;
+        int randomNum = (int)(Math.random() * range) + x;
+		return randomNum;
 	}
 }
