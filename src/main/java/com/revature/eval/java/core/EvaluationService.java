@@ -597,9 +597,23 @@ public class EvaluationService {
 	 * The alphabet used consists of ASCII letters a to z, inclusive, and is case
 	 * insensitive. Input will not contain non-ASCII symbols.
 	 */
-	public boolean isPangram(String string) {
-		// TODO Write an implementation for this method declaration
-		return false;
+	public static boolean isPangram (String sentence) {
+		
+		String abcs="abcdefghijklmnopqrstuvwxyz";
+		String testString="";
+		boolean isPangram=true;
+		
+		for (int i=0; i<=25; i++) {
+			 char nextChar= abcs.charAt(i);
+			 testString += nextChar;
+			 System.out.println(testString);
+			 if (sentence.contains(testString)== false){
+				isPangram=false;
+				break;
+			    }
+			 testString="";
+		    }
+		return isPangram;		
 	}
 
 	/**

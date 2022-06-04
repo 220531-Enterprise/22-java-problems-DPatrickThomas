@@ -7,67 +7,29 @@ public class Tester {
 
 	public static void main(String[] args) {
 		
-	System.out.println(solveWithFunction(10001) );
+	System.out.println(isPangram("five boxing wizards jump quickly at it"));
 	
 	}
 	
-	public static int calculateNthPrime(int k) {
-		int counter=0;
-		int num= 2;
-		int lastPrime=0;
-		boolean isPrime=true;
+	
+	public static boolean isPangram (String sentence) {
 		
-		while (counter < k) {
-			isPrime=true;
-			for (int i=2; i<=num-1; i ++) {
-				if (num % i ==0) {
-					isPrime=false;
-					break;
-				} else {
-					isPrime=true;
-				}
-			}
-		if (isPrime=true) {
-			lastPrime=num;
-			counter ++;
-		}
-		num++;
-		}
-		return lastPrime;
-		}
-	
-	
-	
-	
-		private static boolean isPrime(int num) {		
-			boolean isPrime=true;
-			for (int i=2; i<=num-1; i ++) {
-				if (num % i ==0) {
-					isPrime=false;
-					break;
-				} else {
-					isPrime=true;
-				}
-			}
-			return isPrime;
-		}
+		String abcs="abcdefghijklmnopqrstuvwxyz";
+		String testString="";
+		boolean isPangram=true;
 		
-		
-		public static int solveWithFunction(int k) {
-			int counter=0;
-			int num= 2;
-			int lastPrime=0;
-			boolean isPrime=true;
-			
-			while (counter < k) {
-				if (isPrime(num)) {
-					counter++;
-					lastPrime=num;
-				}
-				num++;
-			}
-			return lastPrime;
-		}
+		for (int i=0; i<=25; i++) {
+			 char nextChar= abcs.charAt(i);
+			 testString += nextChar;
+			 System.out.println(testString);
+			 if (sentence.contains(testString)== false){
+				isPangram=false;
+				break;
+			    }
+			 testString="";
+		    }
+		return isPangram;		
+	}
 }	
 
 
