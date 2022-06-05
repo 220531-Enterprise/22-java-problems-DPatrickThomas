@@ -313,16 +313,14 @@ public class EvaluationService {
 	 * Acronyms)! Help generate some jargon by writing a program that converts a
 	 * long name like Portable Network Graphics to its acronym (PNG).
 	 */
-	public static String acronym(String phrase) {
+	 public static String acronym(String phrase) {
 		String[] words= phrase.split(" ");
 		String acronym= "";
 		for (int i=0; i <words.length; i++) {
 			acronym += words[i].charAt(0);
 		}
-		
-		return acronym;
-	
-	}
+		return acronym.toUpperCase();
+	 }
 
 	/**
 	 * 12. Triangles
@@ -376,20 +374,32 @@ public class EvaluationService {
 		}
 
 		public boolean isEquilateral() {
-			// TODO Write an implementation for this method declaration
+			if(this.getSideOne()== this.getSideTwo() && this.getSideTwo()==this.getSideOne()) {
+				return true;
+			}else {
 			return false;
+			}
 		}
 
 		public boolean isIsosceles() {
-			// TODO Write an implementation for this method declaration
+			if((this.getSideOne()== this.getSideTwo() && this.getSideOne() != this.getSideThree())
+				|| (this.getSideTwo()== this.getSideThree() && this.getSideTwo() != this.getSideThree())
+				|| (this.getSideOne()== this.getSideThree() && this.getSideTwo() != this.getSideThree())
+				) {
+				return true;
+			}else {
 			return false;
+			}
 		}
 
 		public boolean isScalene() {
-			// TODO Write an implementation for this method declaration
+			if(this.getSideOne()!= this.getSideTwo() && this.getSideTwo()!=this.getSideOne()) {
+				return true;
+			}else {
 			return false;
-		}
+			}
 
+	}
 	}
   
 	/**
@@ -692,4 +702,6 @@ public static String cleanPhoneNumber(String string) {
         int randomNum = (int)(Math.random() * range) + x;
 		return randomNum;
 	}
-}
+	
+	}
+

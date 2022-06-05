@@ -15,6 +15,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import com.revature.eval.java.core.EvaluationService.Triangle;
+
 public class EvaluationServiceTest {
 
 	private static final EvaluationService evaluationService = new EvaluationService();
@@ -306,7 +308,7 @@ public class EvaluationServiceTest {
 	 ******************************************************************/
 	@Test
 	public void testAValuableLetter() {
-		assertEquals(4, evaluationService.getScrabbleScore("f"));
+		assertEquals(4,  evaluationService.getScrabbleScore("f"));
 	}
 
 	@Test
@@ -616,7 +618,7 @@ public class EvaluationServiceTest {
 	 ******************************************************************/
 	@Test
 	public void testGuessingGame() {
-		int n = evaluationService.guessingGame(1, 10);
+		int n = (evaluationService).guessingGame(1, 10);
 		boolean result = true;
 		if(n < 1 || n > 10) {
 			result = false;
