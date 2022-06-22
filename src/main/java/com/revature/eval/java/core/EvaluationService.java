@@ -3,6 +3,7 @@ package com.revature.eval.java.core;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
@@ -484,13 +485,12 @@ public class EvaluationService {
 public static String cleanPhoneNumber(String string) {
 		
 		String numOnly= justNumbers(string);
-		if (numOnly.length() >10) {
-			return "Invalid Number";
-		}
+		if (numOnly.length() != 10) {
+				throw new IllegalArgumentException();	
+			}
 		if (numOnly.charAt(0) ==1) {
 			numOnly.substring(1);
 		}
-		
 		return numOnly;
 	}
 
@@ -567,13 +567,25 @@ public static String cleanPhoneNumber(String string) {
 	 * evenly divisible by itself and 1.
 	 * 
 	 * Note that 1 is not a prime number.
+	 * 
 	 */
-	public List<Long> calculatePrimeFactorsOf(long l) {
+	public static List<Long> calculatePrimeFactorsOf(long l) {
+		Long factor= 0L;
+		List<Long> factors = new ArrayList<>();
+		Long num= l;
 		
-		
-		
-		return null;
+		for (long i=2; i<=num; i++) {
+			if( num % i ==0) {
+				factor=i;
+				factors.add(i);
+				num /= i;
+				i=1;
+			}
+		}	
+		return factors;
 	}
+	
+	
 
 	/**
 	 * 18. Calculate Nth Prime
@@ -664,8 +676,23 @@ public static String cleanPhoneNumber(String string) {
 	 * 
 	 * The sum of these multiples is 78.
 	 */
-	public int getSumOfMultiples(int i, int[] set) {
-		return 0;
+	public static int getSumOfMultiples(int i, int[] set) {
+		int sum=0;
+		for (int k=1; k <i ;k++) {
+			System.out.println("K: " +k);
+			for (int j=0; j<set.length; j++) {
+				System.out.println("j: " + j);
+				System.out.println("set[] :" + set[j]);
+				if (k % set[j] == 0) {
+					
+					sum += k;
+					System.out.println(sum);
+					break;
+				}
+			}
+		}
+		
+		return sum;
 	}
 	
 	/**
