@@ -6,7 +6,9 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
 
@@ -15,33 +17,46 @@ public class Tester {
 
 	public static void main(String[] args) {
 	
-
-	int[] set = { 4, 6 };	
-	System.out.println(getSumOfMultiples(15, set));
+		
+		Map <String, Integer> counter= wordCount("one,\ntwo,\nthree");
+		
+		for (Map.Entry<String,Integer> entry : counter.entrySet()) 
+            System.out.println("Key = " + entry.getKey() +
+                             ", Value = " + entry.getValue());
+	}
 		
 		     
-	 }
-	
-	
-	
-	public static int getSumOfMultiples(int i, int[] set) {
-		int sum=0;
-		for (int k=1; k <i ;k++) {
-			System.out.println("K: " +k);
-			for (int j=0; j<set.length; j++) {
-				System.out.println("j: " + j);
-				System.out.println("set[] :" + set[j]);
-				if (k % set[j] == 0) {
-					
-					sum += k;
-					System.out.println(sum);
-					break;
-				}
-			}
-		}
+	public static Map<String, Integer> wordCount(String string) {
 		
-		return sum;
+		string = string.replace(",", " ").replace(",\n", " ");
+//		
+		System.out.println(string);
+		String[] words= string.split(" ");
+		
+		int count=0;
+		Map<String, Integer> counter = new HashMap<>();
+		
+			for(String word :words) {
+				System.out.println(word);
+				
+				for (String w :words) {
+						if (word.equals(w)) {
+							count ++;
+				
+						}
+						
+					}
+				counter.put(word, count);
+				count=0;
+				}
+			
+		return counter;
 	}
+
+	
+
+	
+	
 	
 }
 			

@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
@@ -315,6 +316,7 @@ public class EvaluationService {
 	 * long name like Portable Network Graphics to its acronym (PNG).
 	 */
 	 public static String acronym(String phrase) {
+		phrase= phrase.replace("-", " ");
 		String[] words= phrase.split(" ");
 		String acronym= "";
 		for (int i=0; i <words.length; i++) {
@@ -517,9 +519,26 @@ public static String cleanPhoneNumber(String string) {
 	 * For example for the input "olly olly in come free" olly: 2 in: 1 come: 1
 	 * free: 1
 	 */
-	public Map<String, Integer> wordCount(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+	public static Map<String, Integer> wordCount(String string) {
+		String[] words = string.split("\\W+");
+		int count=0;
+		Map<String, Integer> counter = new HashMap<>();
+			for(String word :words) {
+				System.out.println("Word : " + word);
+				for (String w :words) {
+						
+						System.out.println("Other word :" + w);
+						if (word.equals(w)) {
+							count ++;
+							System.out.println(count);
+						}
+						
+					}
+				counter.put(word, count);
+				count=0;
+				}
+			
+		return counter;
 	}
 
 	/**
@@ -599,6 +618,12 @@ public static String cleanPhoneNumber(String string) {
 	 * numbers, pretend they don't exist and implement them yourself.
 	 */
 	public int calculateNthPrime(int k) {
+		
+		if (k<1) {
+			throw new IllegalArgumentException();
+		}
+		
+		
 		int counter=0;
 		int num= 2;
 		int lastPrime=0;
@@ -614,7 +639,11 @@ public static String cleanPhoneNumber(String string) {
 		return lastPrime;
 	}
 	
-	private static boolean isPrime(int num) {		
+	private static boolean isPrime(int num) {	
+		
+		 
+				
+				
 		boolean isPrime=true;
 		for (int i=2; i<=num-1; i ++) {
 			if (num % i ==0) {
